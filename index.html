@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planol interactiu</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    color: #222;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .plano {
+    position: relative;
+    width: min(100%, 1100px);
+    margin: 30px auto;
+  }
+
+  .plano > img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .zona {
+    position: absolute;
+    display: block;
+    width: 20%;
+    height: 20%;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .zona:hover,
+  .zona:focus-visible {
+    border-color: #1686ff;
+    background: #1686ff22;
+    outline: none;
+  }
+
+  .popup {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    width: min(280px, 75vw);
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px #0003;
+    color: #222;
+    pointer-events: none;
+  }
+
+  .zona:hover .popup,
+  .zona:focus .popup,
+  .zona:focus-within .popup {
+    display: block;
+  }
+
+  .popup img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .popup strong {
+    display: block;
+    padding: 8px 0 2px;
+  }
+</style>
+</head>
+
+<body>
+  <h1>Laboratori de pròtesis dental</h1>
+  <p style="text-align:center">
+    Passeu el cursor sobre les zones marcades en gris per veure les senyalitzacions o per la llegenda de la maquinària per veure el tipus de màquina i la seva funció.
+  </p>
+
+  <div class="plano">
+    <img src="imagenes/Plano-laboratorio.jpg" alt="Plano interactivo">
+
+    <!-- Cartel ducha -->
+    <a class="zona" href="#zona1"
+       aria-label="Ver zona 1"
+       style="left:13%; top:79%; width:2%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/cartel-ducha.jpeg" alt="Detalle de la zona 1">
+        <strong>Cartell dutxa i renta ulls</strong>
+        <span>Cartell de seguretat que indica la ubicació de la dutxa d’emergència i del rentaülls per actuar ràpidament en cas de contacte amb substàncies perilloses.</span>
+      </span>
+    </a>
+
+    <!-- Manta -->
+    <a class="zona" href="#zona1"
+       aria-label="Ver zona 1"
+       style="left:37%; top:79%; width:2%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/cartel-i-manta.jpg" alt="Detalle de la zona 1">
+        <strong>Cartell i manta inifuga</strong>
+        <span>Sufoca petits incendis inicials, apaga la roba cremant en una persona, o protegeix a algú durant una evacuació.</span>
+      </span>
+    </a>
+
+    <!-- Cartel extintor -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:35%; top:81%; width:2%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/cartel-extintor.jpeg" alt="Detalle de la zona 2">
+        <strong>Retalladora</strong>
+        <span>És un senyal de seguretat normalitzada que indica de manera ràpida i clara on es troba un extintor portàtil per a actuar davant un incendi.</span>
+      </span>
+    </a>
+
+    <!-- Cartel-guantes -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:45%; top:66%; width:3%; height:5%;">
+      <span class="popup">
+        <img src="imagenes/cartel-guantes.jpeg" alt="Detalle de la zona 2">
+        <strong>Cartell ús de guants</strong>
+        <span>Equips de Protecció Individual (EPI) dissenyats per a cobrir les mans, nines o avantbraços i evitar lesions en l'entorn laboral.</span>
+      </span>
+    </a>
+
+    <!-- Cartel-gafas -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:55%; top:65%; width:3%; height:5%;">
+      <span class="popup">
+        <img src="imagenes/cartel-gafas.png" alt="Detalle de la zona 2">
+        <strong>Cartell ús d'ulleres</strong>
+        <span>Equips de Protecció Individual (EPI) dissenyats per a salvaguardar els ulls enfront de riscos mecànics, físics o químics quan es treballa amb eines i màquines industrials.</span>
+      </span>
+    </a>
+
+    <!-- Cartel-luz -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:70%; top:18%; width:3%; height:5%;">
+      <span class="popup">
+        <img src="imagenes/cartel-luz.jpeg" alt="Detalle de la zona 2">
+        <strong>Cartell perill elèctric</strong>
+        <span>El cartell o senyal de quadre elèctric serveix per a advertir de la presència de risc elèctric (perill de descàrrega, arc elèctric o alta tensió) i protegir les persones d'accidents.</span>
+      </span>
+    </a>
+
+    <!-- Cartel calor -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:69%; top:78%; width:2%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/cartel-calor.png" alt="Detalle de la zona 2">
+        <strong>Cartell perill alta temperatura</strong>
+        <span>És un senyal de seguretat normalitzada que adverteix sobre l'existència de superfícies, equips, fluids o ambients calents que poden provocar cremades o danys a la salut.</span>
+      </span>
+    </a>
+
+    <!-- Cartel mascara -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:69%; top:88%; width:2%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/cartel-mascara.jpg" alt="Detalle de la zona 2">
+        <strong>Cartell ús de mascareta</strong>
+        <span>És un senyal de seguretat normalitzada que indica l'obligació d'utilitzar protecció respiratòria en un espai determinat.</span>
+      </span>
+    </a>
+
+    <!-- Gelatinitzadora -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:7%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/gelatinizadora.jpg" alt="Detalle de la zona 2">
+        <strong>Gelatinitzadora</strong>
+        <span>Serveix per a escalfar, fondre, batre i mantenir en estat líquid el gel duplicador.</span>
+      </span>
+    </a>
+
+    <!-- Polidora metall -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:12%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/polidora-metall.jpg" alt="Detalle de la zona 2">
+        <strong>Polidora de metall</strong>
+        <span>Serveix per a allisar, escalabornar i donar un acabat brillant (tipus mirall) a les estructures metàl·liques de les pròtesis, corones, ponts o esquelets de crom-cobalt i titani.</span>
+      </span>
+    </a>
+
+    <!-- Polidora ceramica -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:17%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/polidora-ceramica.jpg" alt="Detalle de la zona 2">
+        <strong>Polidora de ceràmica</strong>
+        <span>Serveix per a allisar, eliminar marques de mecanitzat i donar un acabat d'alta lluentor a corones, carilles, ponts i altres peces ceràmiques o de porcellana.</span>
+      </span>
+    </a>
+
+    <!-- Vaporizadora -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:21%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/vaporizadora.jpg" alt="Detalle de la zona 2">
+        <strong>Vaporitzadora</strong>
+        <span>Màquina d'ús professional en laboratoris i clíniques odontològiques que emet un doll de vapor d'aigua calenta a alta pressió.</span>
+      </span>
+    </a>
+
+    <!-- Arenadora -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:25%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/arenadora.jpg" alt="Detalle de la zona 2">
+        <strong>Arenadora</strong>
+        <span>Projecta aire comprimit i partícules abrasives (com a òxid d'alumini o perles de vidre) a alta velocitat contra la superfície de peces com a corones, ponts i estructures metàl·liques o ceràmiques.</span>
+      </span>
+    </a>
+
+    <!-- Olla auto -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:30%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/olla-auto.jpg" alt="Detalle de la zona 2">
+        <strong>Olla automàtica</strong>
+        <span>S'utilitza per a endurir i consolidar les resines acríliques amb les quals es fabriquen les pròtesis, aparells d'ortodòncia i fèrules.</span>
+      </span>
+    </a>
+
+    <!-- Llum fotopoli -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:34%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/fotopolimerizadora.jpg" alt="Detalle de la zona 2">
+        <strong>Llum fotopolimeritzadora</strong>
+        <span>Serveix per a endurir i consolidar de manera ràpida els materials resinosos i compostos (compòsits) fotosensibles utilitzats tant en la clínica com en el laboratori dental.</span>
+      </span>
+    </a>
+
+    <!-- Retalladora -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:39%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/retalladora.jpg" alt="Detalle de la zona 2">
+        <strong>Retalladora</strong>
+        <span>Serveix per a per a tallar, anivellar i donar forma als sòcols i models de guix o resina.</span>
+      </span>
+    </a>
+
+    <!-- Recortadora interna -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:43%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/recortadora-interna.png" alt="Detalle de la zona 2">
+        <strong>Retalladora interior</strong>
+        <span>Serveix per a l'acabat i buidatge de zones còncaves o internes dels models de guix.</span>
+      </span>
+    </a>
+
+    <!-- Impresora 3D -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:48%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/impresora-3b.jpg" alt="Detalle de la zona 2">
+        <strong>Impressora 3D</strong>
+        <span>Serveix per a fabricar elements de restauració bucal i ortodòncia de manera ràpida i altament personalitzada a partir de dissenys digitals en 3D.</span>
+      </span>
+    </a>
+
+    <!-- Bany aigua -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:52%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/bany-aigua.png" alt="Detalle de la zona 2">
+        <strong>Bany d'aigua</strong>
+        <span>Serveix per a evitar que el material acrílic es deformi, es ressequi o perdi la seva forma original quan no s'emporta posada.</span>
+      </span>
+    </a>
+
+    <!-- Lampara UV -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:57%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/lampara-UV.png" alt="Detalle de la zona 2">
+        <strong>Llum ultraviolada</strong>
+        <span>Serveix per a endurir i consolidar de manera ràpida els materials resinosos i compostos (compòsits) fotosensibles utilitzats tant en la clínica com en el laboratori dental.</span>
+      </span>
+    </a>
+
+    <!-- Horno precalenta -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:61%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/horno-precalentamiento.jpg" alt="Detalle de la zona 2">
+        <strong>Forn preescalfament</strong>
+        <span>Serveix per a escalfar els cilindres de revestiment i els gresols abans de realitzar el procés de colat de metall o l'eliminació (fosa) de la cera dels motlles.</span>
+      </span>
+    </a>
+
+    <!-- Horno zirconio -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:70%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/forn-zirconi.jpg" alt="Detalle de la zona 2">
+        <strong>Forn pre zirconi</strong>
+        <span>Serveix per a transformar les peces de zirconi des d'un estat porós i fràgil (similar al guix o el guix després de ser fresades) en una estructura ceràmica completament densa, rígida i d'alta resistència mecànica.</span>
+      </span>
+    </a>
+
+    <!-- Premsa -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:74%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/premsa.jpg" alt="Detalle de la zona 2">
+        <strong>Premsa</strong>
+        <span>Serveix per a aplicar pressió controlada i uniforme sobre els motlles i materials (com a mufles amb resines acríliques o ceràmiques) durant la fabricació de dentadures i pròtesis.</span>
+      </span>
+    </a>
+
+    <!-- Bany ultrasonico -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:78%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/banyo-ultrasonico.jpeg" alt="Detalle de la zona 2">
+        <strong>Bany alcohol isopropilic</strong>
+        <span>Serveix per a la neteja profunda, desinfecció i eliminació de residus de greix o cera durant el seu procés de fabricació o manteniment en el laboratori dental.</span>
+      </span>
+    </a>
+
+    <!-- Horno ceramico -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:82%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/horno-ceramica.jpg" alt="Detalle de la zona 2">
+        <strong>Forn ceràmic</strong>
+        <span>Serveix per a coure, sinteritzar, cristal·litzar, premsar i setinar materials ceràmics (com a porcellana, disilicat de liti o zircònia), transformant peces fràgils i poroses en restauracions fortes, duradores i amb acabat estètic natural.</span>
+      </span>
+    </a>
+
+    <!-- Autospin -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:76%; top:86%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/autospin.jpg" alt="Detalle de la zona 2">
+        <strong>Autospin</strong>
+        <span>Serveix per a elaborar models de treball d'alta precisió amb plaques base de plàstic.</span>
+      </span>
+    </a>
+
+    <!-- Micromotor -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:89%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/micromotor.jpg" alt="Detalle de la zona 2">
+        <strong>Micromotor</strong>
+        <span>Serveix per a treballar, ajustar i donar acabat a peces com a corones, ponts i dentadures postisses.</span>
+      </span>
+    </a>
+
+    <!-- Vibradora -->
+    <a class="zona" href="#zona2"
+       aria-label="Ver zona 2"
+       style="left:77%; top:93%; width:15%; height:3%;">
+      <span class="popup">
+        <img src="imagenes/vibrador.jpg" alt="Detalle de la Vibradora">
+        <strong>Vibradora</strong>
+        <span>Serveix per a eliminar les bombolles d'aire i aconseguir una mescla homogènia en preparar el guix o l'escaiola en el laboratori dental.</span>
+      </span>
+    </a>
+
+  </div>
+</body>
+</html>
